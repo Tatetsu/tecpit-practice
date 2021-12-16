@@ -16,18 +16,15 @@ library.add(
   faEllipsisV
 )
 
-import { firestorePlugin } from 'vuefire' 
-// おそらくここのコードでエラーが出ていると思われます         
-// import firebase from 'firebase'
-// 下のコメントアウトしているコードはfirebaseのバージョンが違うことで出るエラーという記事を見つけ追加したコードです
-import { initializeApp } from 'firebase/app'     
-import 'firebase/firestore'
+import { firestorePlugin } from 'vuefire'          
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 Vue.use(firestorePlugin)
 
-firebase.initializeApp({  
-  // 下記の数字はfirebaseから引っ張ってきました`              
-  apiKey: "AIzaSyBVX1AbZG4wGqMHVOLj7C1bp_SuTv243Mk",
+firebase.initializeApp({    
+  apiKey:"AIzaSyBVX1AbZG4wGqMHVOLj7C1bp_SuTv243Mk",
   authDomain: "whisperer-a9ba0.firebaseapp.com",
   projectId: "whisperer-a9ba0",
   storageBucket: "whisperer-a9ba0.appspot.com",

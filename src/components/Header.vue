@@ -12,7 +12,6 @@
 </header>
 </template>
 
-
 <style lang="stylus" scoped>
 header
   position fixed
