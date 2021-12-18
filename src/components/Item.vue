@@ -24,7 +24,7 @@ export default {
     },
     firestore () {
         return {
-            whisper: db.collection('whisperer').doc(this/$props.id),
+            whisper: db.collection('whisperer').doc(this.$props.id),
             user: db.collection('users').doc(this.$props.uid)
         }
     }
@@ -41,6 +41,30 @@ export default {
   flex-wrap no-wrap
   justify-content flex-start
   position relative
+.editor
+    position relative
+    width 100%
+    textarea
+      background transparent
+      resize none
+      height 80px
+      width 96%
+      border none
+      padding 10px 2%
+      font-size .9rem
+      font-weight lighter
+      &:focus
+        outline none
+    .message
+      opacity 0  
+      position absolute
+      bottom 5px
+      right 10px
+      transition .2s
+      font-size .8rem
+    &:hover
+      .message
+        opacity 1
   &:first-child
     border none
   &:hover

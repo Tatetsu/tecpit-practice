@@ -12,7 +12,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.6",
     "firebase": "^9.6.1",
     "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
+    "vue-router": "^3.5.3",
     "vue2-filters": "^0.13.0",
     "vuefire": "^3.0.0-alpha.2"
   },

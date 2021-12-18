@@ -1,18 +1,6 @@
 <template>
   <div class="home">
     <div class="list">
-            <!-- <li v-for="whisper in whispers" :key="whisper.id" class="item">
-        <div class="user-box">
-          <div 
-            class="avatar"
-            :style="'background-image: url('+url+')'"
-          >
-          </div>
-          <p class="user-name">{{whisper.uid}}</p>
-        </div>
-        <div class="content" v-html="whisper.content">
-        </div>
-      </li> -->
 <Item 
   v-for="whisper in whispers"
   :key="whisper.id"
