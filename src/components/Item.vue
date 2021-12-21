@@ -6,21 +6,58 @@
       </div>
         <p class="user-name">{{ user.name }}</p>
     </div>
-      <div class="content" v-html="whisper.content">
+    <div v-if="editing" class="editor">
+      <textarea v-model="whisper.content" placeholder="edit whisper" @keypress.enter="updatewhisper">
+      </textarea>
+      <p class="message">Press Enter to Whisper</p>
+    </div>
+      <div v-else class="content" v-html="whisper.content">
+      </div>
+      <button v-if="currentUser && currentUser.uid == user.id" @click="showBtns = !showBtns">
+        <fa icon="ellipsis-v" />
+      </button>
+      <div v-if="showBtns" class="controls">
+        <li @click="editing = !editing">edit</li>
+        <li @click="deleteWhisper" style="color: red">delete</li>
       </div>
     </li>
 </template>
 
 <script>
 import { db } from '../main'
-
+import { auth } from '../main'
 export default {
     props: ['id','uid'],
     data () {
         return {
             whisper: {},
-            user: {}
+            user: {},
+            currentUser: {},
+            showBtns: false,
+            editing: false
         }
+    },
+    methods: {
+      deleteWhisper () {
+        if(window.confirm('Are You to Deleate This Whisper')) {
+          db.collection('whispers').doc(this.$props.id).delete()
+        }
+      },
+      updateWhisper () {
+        const date = new Date()
+        db.collection('whispers').doc(this.whisper.id),set({
+          'content': this.whisper.content,
+          'date': date
+        },{ merge: true })
+        .then (
+          this.editing = false
+        )
+      }
+    },
+    created () {
+      auth.onAuthStateChanged(user => {
+        this.currentUser = user
+      })
     },
     firestore () {
         return {

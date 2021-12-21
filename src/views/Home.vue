@@ -14,10 +14,8 @@
 <script>
 // @ is an alias to /src
 import Item from '@/components/Item.vue'
-
 import { db } from "../main";
 import Vue2Filters from "vue2-filters";
-
 export default {
   name: "home",
   data() {
@@ -38,5 +36,4 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
 </style>

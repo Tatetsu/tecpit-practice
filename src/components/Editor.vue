@@ -13,13 +13,6 @@
   </li>
 </template>
 
-<!-- 略 -->
-      </textarea>
-      <p class="message">Press Enter to Whisper</p>
-    </div>
-  </li>
-</template>
-
 <script>
 import { db } from '../main'
 export default {
